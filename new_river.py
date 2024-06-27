@@ -34,8 +34,23 @@ n, m = map(int, input().split())
 y, x = map(int, input().split())
 mountain = [list(map(int, input().split())) for i in range(n)]
 river_finder(mountain,x,y,[(y,x)])
-all_rivers=sorted(list(set(all_rivers)),key=lambda x:x[0])
-#all_rivers=sorted(all_rivers,key=lambda x:x[1])
-print(all_rivers)
-#for pos in all_rivers:
-    
+all_rivers=sorted(list(set(all_rivers)))
+final_flag = False
+for pos in all_rivers:
+    flag=0
+    if (pos[0]+1,pos[1]) in all_rivers:
+        flag+=1
+    if (pos[0]-1,pos[1]) in all_rivers:
+        flag+=1
+    if (pos[0],pos[1]+1) in all_rivers:
+        flag+=1
+    if (pos[0],pos[1]-1) in all_rivers:
+        flag+=1
+    if flag<2 and (pos[0]==0 or pos[0]==n-1 or pos[1]==0 or pos[1]==m-1):
+        final_flag=True
+        break
+if not final_flag:
+    print(False)
+else:
+    for pos in all_rivers:
+        print(pos)
