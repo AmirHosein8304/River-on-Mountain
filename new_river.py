@@ -38,15 +38,15 @@ all_rivers=sorted(list(set(all_rivers)))
 final_flag = False
 for pos in all_rivers:
     flag=0
-    if (pos[0]+1,pos[1]) in all_rivers:
+    if (pos[0]+1,pos[1]) in all_rivers and mountain[pos[0]+1][pos[1]]<mountain[pos[0]][pos[1]]:
         flag+=1
-    if (pos[0]-1,pos[1]) in all_rivers:
+    if (pos[0]-1,pos[1]) in all_rivers and mountain[pos[0]-1][pos[1]]<mountain[pos[0]][pos[1]]:
         flag+=1
-    if (pos[0],pos[1]+1) in all_rivers:
+    if (pos[0],pos[1]+1) in all_rivers and mountain[pos[0]][pos[1]+1]<mountain[pos[0]][pos[1]]:
         flag+=1
-    if (pos[0],pos[1]-1) in all_rivers:
+    if (pos[0],pos[1]-1) in all_rivers and mountain[pos[0]][pos[1]-1]<mountain[pos[0]][pos[1]]:
         flag+=1
-    if flag<2 and (pos[0]==0 or pos[0]==n-1 or pos[1]==0 or pos[1]==m-1) and pos!=(y,x):
+    if flag==0 and (pos[0]==0 or pos[0]==n-1 or pos[1]==0 or pos[1]==m-1) and pos!=(y,x):
         final_flag=True
         break
 if not final_flag:
