@@ -46,7 +46,7 @@ for pos in all_rivers:
         flag+=1
     if (pos[0],pos[1]-1) in all_rivers:
         flag+=1
-    if flag<2 and (pos[0]==0 or pos[0]==n-1 or pos[1]==0 or pos[1]==m-1):
+    if flag<2 and (pos[0]==0 or pos[0]==n-1 or pos[1]==0 or pos[1]==m-1) and pos!=(y,x):
         final_flag=True
         break
 if not final_flag:
