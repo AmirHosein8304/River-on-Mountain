@@ -1,3 +1,5 @@
+#امیرحسین شاکری:40218593
+#امیرحسین توکلی:40216123
 all_rivers = []
 def river_finder(mountian, x, y,river_direction,flag=0,flag_1=False,counter=0):
     counter+=1
